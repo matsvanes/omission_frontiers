@@ -1,5 +1,6 @@
 %% SET PATHS
 
+clearvars variables -except ft_default
 restoredefaultpath; %% set a clean path
 datainfo;
 

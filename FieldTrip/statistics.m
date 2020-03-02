@@ -1,19 +1,13 @@
 %% SET PATHS
 
-clear variables
+clearvars variables -except ft_default
 restoredefaultpath; %% set a clean path
-home_dir = '/home/lau/'; %% change according to your path
-analysis_dir = 'analyses/omission_frontiers_BIDS-FieldTrip/';
-
-matlab_dir = fullfile(home_dir, 'matlab'); % change according to your path
-data_dir = fullfile(home_dir, analysis_dir, '/data');
-figures_dir = []; % means no figures are saved
-script_dir = fullfile(home_dir, analysis_dir, 'scripts', 'matlab');
+datainfo; % load the relevant directories
 
 %% ADD PATHS
 
 % add your fieldtrip
-addpath(fullfile(matlab_dir, 'fieldtrip-20170906'));
+addpath(fieldtrip_dir);
 ft_defaults %% initialize FieldTrip defaults
 
 % functions needed for analysis
@@ -25,26 +19,26 @@ addpath(fullfile(script_dir, 'statistics_functions'));
 
 subjects = {
         
-             'sub-01'
-             'sub-02'
-             'sub-03'
-             'sub-04'
-             'sub-05'
-             'sub-06'
-             'sub-07'
-             'sub-08'
-             'sub-09'
-             'sub-10'
-             'sub-11'
-             'sub-12'
-             'sub-13'
-             'sub-14'
-             'sub-15'
-             'sub-16'
-             'sub-17'
-             'sub-18'
-             'sub-19'
-             'sub-20'
+%              'sub-01'
+%              'sub-02'
+%              'sub-03'
+%              'sub-04'
+%              'sub-05'
+%              'sub-06'
+%              'sub-07'
+%              'sub-08'
+%              'sub-09'
+%              'sub-10'
+%              'sub-11'
+%              'sub-12'
+%              'sub-13'
+%              'sub-14'
+%              'sub-15'
+%              'sub-16'
+%              'sub-17'
+%              'sub-18'
+%              'sub-19'
+%              'sub-20'
                      
                      };  
                  

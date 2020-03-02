@@ -1,18 +1,13 @@
 %% SET PATHS
 
+clearvars variables -except ft_default
 restoredefaultpath; %% set a clean path
-home_dir = '/home/lau/'; %% change according to your path
-analysis_dir = 'analyses/omission_frontiers_BIDS-FieldTrip/';
-
-matlab_dir = fullfile(home_dir, 'matlab'); % change according to your path
-data_dir = fullfile(home_dir, analysis_dir, '/data');
-figures_dir = []; % means no figures are saved
-script_dir = fullfile(home_dir, analysis_dir, 'scripts', 'matlab');
+datainfo; % load the relevant directories
 
 %% ADD PATHS
 
 % add your fieldtrip
-addpath(fullfile(matlab_dir, 'fieldtrip-20170906'));
+addpath(fieldtrip_dir);
 ft_defaults %% initialize FieldTrip defaults
 
 % functions needed for analysis

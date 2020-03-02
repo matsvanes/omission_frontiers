@@ -5,9 +5,10 @@ global ft_default
 ft_default = [];
 ft_default.checksize = inf;
 
+datainfo;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % enable reproducescript
-ft_default.reproducescript = 'reproduce';
+ft_default.reproducescript = reproduce_dir;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Create all relevant directories where all data and all figures will be

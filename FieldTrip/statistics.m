@@ -3,6 +3,7 @@
 clearvars variables -except ft_default
 restoredefaultpath; %% set a clean path
 datainfo; % load the relevant directories
+figures_dir = [];
 
 %% ADD PATHS
 

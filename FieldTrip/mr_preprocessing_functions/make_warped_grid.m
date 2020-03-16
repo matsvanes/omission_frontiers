@@ -5,6 +5,7 @@ function [warped_grid] = make_warped_grid(cfg, input_variables)
 % cfg can contain anything that ft_prepare_sourcemodel recognizes
 
 mri = input_variables{1};
+mri.anatomy = mri.brain;
 cfg.mri = mri;
 warped_grid = ft_prepare_sourcemodel(cfg);
 

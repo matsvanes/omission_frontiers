@@ -47,6 +47,8 @@ subjects = {
 
 subjects = subjects(1);
 
+%% The following sections cannot be completed because raw anatomical data are missing. Use mri_segmented.mat to continue.
+%{
 %% READ DICOMS
 %uses: ft_read_mri
 
@@ -117,7 +119,7 @@ cfg.output = {'brain' 'skull' 'scalp'};
 
 loop_through_subjects(subjects, data_dir, function_name, ...
 		      cfg, output, input, figures_dir, overwrite);
-
+%}
 %% CREATE BRAIN MESH
 %uses: ft_prepare_mesh
 

@@ -51,6 +51,8 @@ subjects = subjects(1);
 
 set(0, 'defaultaxesfontsize', 30, 'defaultaxesfontweight', 'bold')
 
+%% The following sections cannot be plotted because the raw anatomical data is not available.
+%{
 %% PLOT MRI
 % uses: ft_sourceplot
 
@@ -77,7 +79,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 
 % options for the function
 overwrite = false;
-input = {'headmodel' 'mri_realigned_digitization_points' 'mri_segmented'};
+input = {'headmodel' 'mri_segmented'};
 output = {'mri/sens_headshape_mri_axes' ...
           'mri/anat_mriseg' ...
           'mri/plot_ortho' ...
@@ -96,7 +98,7 @@ cfg.headshape_file = 'oddball_absence-tsss-mc_meg.fif';
 % Run "loop_through_subjects" function
 loop_through_subjects(subjects, data_dir, function_name, ...
                       cfg, output, input, figures_dir, overwrite);
-
+%}
 %% PLOT HEAD MODEL AND GRID 
 % uses: ft_plot_mesh and ft_plot_vol
 

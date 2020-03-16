@@ -20,7 +20,7 @@ addpath(fullfile(script_dir, 'statistics_functions'));
 
 subjects = {
         
-%              'sub-01'
+             'sub-01'
 %              'sub-02'
 %              'sub-03'
 %              'sub-04'

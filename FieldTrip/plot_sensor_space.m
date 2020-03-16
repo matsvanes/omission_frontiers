@@ -50,7 +50,9 @@ subjects = subjects(1);
 %% SET PLOT DEFAULTS
 
 set(0, 'defaultaxesfontsize', 30, 'defaultaxesfontweight', 'bold')
-                 
+
+%% The following is disabled because the figure cannot be saved - too large
+%{
 %% PLOT RAW
 % uses: ft_preprocessing, ft_appenddata and ft_databrowser
 
@@ -68,11 +70,12 @@ cfg.viewmode = 'vertical';
 cfg.channel = 'MEG';
 cfg.input_file = 'oddball_absence-tsss-mc_meg';
 cfg.input_extension = '.fif';
+cfg.allowoverlap = 'yes';
 
 % Run "loop_through_subjects" function
 loop_through_subjects(subjects, data_dir, function_name, ...
                       cfg, output, input, figures_dir, overwrite);
-
+%}
 %% PLOT EPOCHS
 % uses: ft_databrowser
 
@@ -84,7 +87,7 @@ function_name = 'plot_epochs';
 
 % build configuration
 cfg = [];
-cfg.save_figure = false;
+cfg.save_figure = true;
 cfg.continuous = 'yes';
 cfg.viewmode = 'butterfly';
 cfg.channel_sets = {'MEGMAG' 'MEGGRAD'};
@@ -104,7 +107,7 @@ function_name = 'plot_epochs';
 
 % build configuration
 cfg = [];
-cfg.save_figure = false;
+cfg.save_figure = true;
 cfg.continuous = 'yes';
 cfg.viewmode = 'butterfly';
 cfg.channel_sets = {'MEGMAG' 'MEGGRAD'};
@@ -125,7 +128,7 @@ function_name = 'plot_ica';
 
 % build configuration
 cfg = [];
-cfg.save_figure = false;
+cfg.save_figure = true;
 
 cfg.continuous = [];
 cfg.continuous.layout = 'neuromag306mag.lay';
@@ -152,7 +155,7 @@ function_name = 'plot_timelockeds';
 % build configuration
 cfg = [];
 cfg.events = {1 2 3 13 14 15 21};
-cfg.save_figure = false;
+cfg.save_figure = true;
 
 cfg.multiplot = [];
 cfg.multiplot.layout = 'neuromag306mag.lay';
@@ -186,7 +189,7 @@ cfg = [];
 cfg.events = {1 2 3 13 14 15};
 cfg.title_names = {'Standard 1' 'Standard 2' 'Standard 3' ...
     'Omission 4' 'Omission 5' 'Omission 6'};
-cfg.save_figure = false;
+cfg.save_figure = true;
 
 cfg.singleplot = [];
 cfg.singleplot.layout = 'neuromag306cmb.lay';

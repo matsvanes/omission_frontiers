@@ -3,7 +3,7 @@
 clearvars variables -except ft_default
 restoredefaultpath; %% set a clean path
 datainfo; % load the relevant directories
-
+figures_dir = [];
 %% ADD PATHS
 
 % add your fieldtrip
@@ -20,7 +20,7 @@ addpath(fullfile(script_dir, 'mr_preprocessing_functions'));
 subjects = {
         
              'sub-01'
-%              'sub-02'
+             'sub-02'
 %              'sub-03'
 %              'sub-04'
 %              'sub-05'

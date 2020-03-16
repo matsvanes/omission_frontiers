@@ -8,7 +8,7 @@ datainfo; % load the relevant directories
 
 subjects = {
              'sub-01'
-%              'sub-02'
+             'sub-02'
 %              'sub-03'
 %              'sub-04'
 %              'sub-05'

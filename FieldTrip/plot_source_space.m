@@ -19,8 +19,8 @@ addpath(fullfile(script_dir, 'plot_source_space_functions'));
 
 subjects = {
         
-%              'sub-01'
-%              'sub-02'
+             'sub-01'
+             'sub-02'
 %              'sub-03'
 %              'sub-04'
 %              'sub-05'

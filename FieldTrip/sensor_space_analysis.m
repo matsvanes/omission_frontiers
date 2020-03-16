@@ -21,7 +21,7 @@ addpath(fullfile(script_dir, 'sensor_space_analysis_functions'));
 subjects = {
         
              'sub-01'
-%              'sub-02'
+             'sub-02'
 %              'sub-03'
 %              'sub-04'
 %              'sub-05'

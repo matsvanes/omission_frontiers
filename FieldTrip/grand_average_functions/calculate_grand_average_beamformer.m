@@ -27,6 +27,7 @@ for event_index = 1:n_events
         data_event{subject_index} = this_beamformer;
     end
     this_ga = ft_sourcegrandaverage(cfg, data_event{:});
+    this_ga.dimord = 'pos_freq';
     this_ga = rmfield(this_ga, 'cfg'); %% takes up a lot of space
     grand_average_beamformers.(field_name) = this_ga;
 end

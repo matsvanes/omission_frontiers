@@ -62,7 +62,7 @@ function_name = 'plot_tfr_epochs';
 
 % build configuration
 cfg = [];
-cfg.save_figure = false;
+cfg.save_figure = true;
 cfg.select_data.channel = 'MEGGRAD';
 cfg.events = {1 2 3 13 14 15};
 cfg.xlim = [0.800 1.200];
@@ -82,7 +82,7 @@ function_name = 'plot_epochs_power';
 
 % build configuration
 cfg = [];
-cfg.save_figure = false;
+cfg.save_figure = true;
 cfg.events = {1 2 3 13 14 15};
 cfg.contrast_event = 21;
 

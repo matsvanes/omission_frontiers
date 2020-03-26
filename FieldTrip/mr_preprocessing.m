@@ -174,8 +174,8 @@ cfg.warpmni = 'yes';
 cfg.template = fullfile(matlab_dir, 'fieldtrip', ...
                             'template', 'sourcemodel', ...
                             'standard_sourcemodel3d10mm.mat');
-cfg.grid.nonlinear = 'yes';
-cfg.grid.unit = 'mm';
+cfg.nonlinear = 'yes';
+cfg.unit = 'mm';
 
 loop_through_subjects(subjects, data_dir, function_name, ...
 		      cfg, output, input, figures_dir, overwrite);

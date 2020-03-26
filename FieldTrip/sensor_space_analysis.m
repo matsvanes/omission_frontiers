@@ -1,6 +1,6 @@
 %% SET PATHS
 
-clearvars variables -except ft_default
+clearvars variables -except ft_default do_subject
 restoredefaultpath; %% set a clean path
 datainfo; % load the relevant directories
 figures_dir = [];
@@ -46,14 +46,14 @@ subjects = {
 %% CHOOSE THE NUMBER OF SUBJECTS RUN
 % index subjects from 1:20 according to how many you want to run (:) all
 
-subjects = subjects(1);
+subjects = subjects(do_subject);
 
 %% DEFINE TRIALS AND PREPROCESS
 % uses: ft_definetrial; ft_preprocessing, ft_appenddata,
 % ft_redefinetrial and ft_resampledata
 
 % options for the function
-overwrite = false; %% should existing files be overwritten
+overwrite = true; %% should existing files be overwritten
 input = {}; %% no MATLAB file format input
 output = {'preprocessed_data'};
 function_name = 'define_trials_and_preprocess_data';
@@ -88,7 +88,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_rejectvisual and ft_selectdata
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'preprocessed_data'};
 output = {'cleaned_data'};
 function_name = 'clean_data';
@@ -109,7 +109,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_selectdata
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'preprocessed_data'};
 output = {'cleaned_data'};
 function_name = 'clean_data_based_on_trial_indices';
@@ -126,7 +126,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_componentanalysis
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'cleaned_data'};
 output = {'ica'};
 function_name = 'run_ica';
@@ -146,7 +146,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_rejectcomponent
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'ica' 'cleaned_data'};
 output = {'ica_cleaned_data'};
 function_name = 'remove_components';
@@ -164,7 +164,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_timelockanalysis
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'ica_cleaned_data'};
 output = {'timelocked_data'};
 function_name = 'timelocked_analysis';
@@ -181,7 +181,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: None
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'ica_cleaned_data' 'timelocked_data'};
 output = {'untimelocked_data'};
 function_name = 'untimelocked_analysis';
@@ -198,7 +198,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_freqanalysis
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'untimelocked_data'};
 output = {'tfr'};
 function_name = 'time_frequency_representation';
@@ -220,7 +220,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_combineplanar
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'tfr'};
 output = {'combined_tfr'};
 function_name = 'combine_gradiometers';
@@ -237,7 +237,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: None
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'combined_tfr'};
 output = {'baselined_combined_tfr'};
 function_name = 'baseline_tfr';

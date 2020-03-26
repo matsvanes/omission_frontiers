@@ -46,7 +46,7 @@ subjects = {
 % uses: ft_freqgrandaverage
 
 % options for the function
-overwrite = false;
+overwrite = true;
 running_on_grand_average = false;
 input = {'baselined_combined_tfr'};
 output = {'grand_average_tfr'};
@@ -70,7 +70,7 @@ apply_across_subjects(subjects, data_dir, function_name, ...
 % uses: ft_sourcegrandaverage
 
 % options for the function
-overwrite = false;
+overwrite = true;
 running_on_grand_average = false;
 input = {'beamformer_contrasts'};
 output = {'grand_average_beamformer'};
@@ -94,7 +94,7 @@ apply_across_subjects(subjects, data_dir, function_name, ...
 % uses: ft_sourceinterpolate
 
 % options for the function
-overwrite = false;
+overwrite = true;
 running_on_grand_average = true;
 input = {'grand_average_beamformer'};
 output = {'grand_average_beamformer_interpolated'};

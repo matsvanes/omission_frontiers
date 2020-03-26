@@ -1,6 +1,6 @@
 %% SET PATHS
 
-clearvars variables -except ft_default
+clearvars variables -except ft_default do_subject
 restoredefaultpath; %% set a clean path
 datainfo; % load the relevant directories
 figures_dir = [];
@@ -45,13 +45,13 @@ subjects = {
 %% CHOOSE THE NUMBER OF SUBJECTS RUN
 % index subjects from 1:20 according to how many you want to run (:) all
 
-subjects = subjects(1);
+subjects = subjects(do_subject);
 
 %% CROP DATA INTO TIMES OF INTEREST
 % uses: ft_redefinetrial and ft_selectdata
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'untimelocked_data'};
 output = {'cropped_untimelocked_data'};
 function_name = 'crop_data';
@@ -74,7 +74,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_freqanalysis and ft_appenddata
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'cropped_untimelocked_data'};
 output = {'experimental_conditions_fourier' 'non_stimulation_fourier' ...
           'combined_fourier'};
@@ -100,7 +100,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_sourceanalysis
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'experimental_conditions_fourier' 'non_stimulation_fourier' ...
          'combined_fourier' 'headmodel' 'leadfield'};
 output = {'beamformer_contrasts'};
@@ -126,7 +126,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_sourceinterpolate
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'beamformer_contrasts'};
 output = {'beamformer_contrasts_interpolated'};
 function_name = 'interpolate_beamformer';

@@ -50,7 +50,7 @@ set(0, 'defaultaxesfontsize', 30, 'defaultaxesfontweight', 'bold')
 % uses: ft_singleplotTFR and ft_topoplotTFR
 
 % options for the function
-overwrite = false;
+overwrite = true;
 running_on_grand_average = true;
 input = {'grand_average_tfr'};
 output = {'sensor_space/singleplot_tfr' 'sensor_space/topoplot_tfr'};
@@ -61,7 +61,7 @@ cfg = [];
 cfg.events = {1 2 3 13 14 15};
 cfg.title_names = {'Standard 1' 'Standard 2' 'Standard 3' ...
     'Omission 4' 'Omission 5' 'Omission 6'};
-cfg.save_figure = false;
+cfg.save_figure = true;
 
 cfg.singleplot = [];
 cfg.singleplot.layout = 'neuromag306cmb.lay';
@@ -86,7 +86,7 @@ apply_across_subjects(subjects, data_dir, function_name, ...
 % uses: ft_math, ft_singleplotTFR and ft_multiplotTFR
 
 % options for the function
-overwrite = false;
+overwrite = true;
 running_on_grand_average = true;
 input = {'grand_average_tfr' 'statistics/statistics_tfr'};
 output = {'sensor_space/singleplot_tfr_masked' ...
@@ -97,7 +97,7 @@ function_name = 'plot_grand_averages_tfr_masked';
 cfg = [];
 cfg.event_comparisons = {[1 3]};
 cfg.title_names = {'Standard 1 vs Standard 3'};
-cfg.save_figure = false;
+cfg.save_figure = true;
 
 cfg.singleplot = [];
 cfg.singleplot.layout = 'neuromag306cmb.lay';
@@ -122,7 +122,7 @@ apply_across_subjects(subjects, data_dir, function_name, ...
 % uses: ft_sourceplot
 
 % options for the function
-overwrite = false;
+overwrite = true;
 running_on_grand_average = true;
 input = {'grand_average_beamformer'};
 output = {'source_space/surface_beamformer'};
@@ -130,7 +130,7 @@ function_name = 'plot_grand_averages_beamformer';
 
 % build configuration
 cfg = [];
-cfg.save_figure = false;
+cfg.save_figure = true;
 
 cfg.events = {3};
 cfg.title_names = {'Standard 3'}; %{'Standard 3'};
@@ -150,7 +150,7 @@ apply_across_subjects(subjects, data_dir, function_name, ...
 % uses: ft_math, ft_sourceplot
 
 % options for the function
-overwrite = false;
+overwrite = true;
 running_on_grand_average = true;
 input = {'grand_average_beamformer_interpolated' ...
          'statistics/statistics_beamformer_interpolated'};
@@ -159,7 +159,7 @@ function_name = 'plot_grand_averages_beamformer_masked';
 
 % build configuration
 cfg = [];
-cfg.save_figure = false;
+cfg.save_figure = true;
 
 cfg.event_comparisons = {[1 3]};
 cfg.title_names = {'Standard 1 vs Standard 3'};

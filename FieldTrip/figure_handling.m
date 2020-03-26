@@ -1,6 +1,6 @@
 %% SET PATHS
 
-clearvars variables -except ft_default
+clearvars variables -except ft_default do_subject
 restoredefaultpath; %% set a clean path
 datainfo; % load the relevant directories
 
@@ -44,13 +44,13 @@ subjects = {
 %% CHOOSE THE NUMBER OF SUBJECTS RUN
 % index subjects from 1:20 according to how many you want to run (:) all
 
-subjects = subjects(1);
+subjects = subjects(do_subject);
 
 %% CREATE IMAGE FILES FROM FIGURE FILES
 % uses: None
 
 % options for the function
-overwrite = false; %% should existing files be overwritten
+overwrite = true; %% should existing files be overwritten
 input = {
 %          'epochs/butterfly_mag' 
 %          'epochs/epochs_power' 
@@ -75,7 +75,7 @@ create_image_files_from_figure_files(subjects, figures_dir, ...
 % uses: None
 
 % options for the function
-overwrite = false; %% should existing files be overwritten
+overwrite = true; %% should existing files be overwritten
 input = {
 %          'sensor_space/singleplot_tfr'
 %          'sensor_space/singleplot_tfr_masked' 

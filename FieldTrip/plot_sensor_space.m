@@ -1,6 +1,6 @@
 %% SET PATHS
 
-clearvars variables -except ft_default
+clearvars variables -except ft_default do_subject
 restoredefaultpath; %% set a clean path
 datainfo; % load the relevant directories
 
@@ -45,7 +45,7 @@ subjects = {
 %% CHOOSE THE NUMBER OF SUBJECTS RUN
 % index subjects from 1:20 according to how many you want to run (:) all
 
-subjects = subjects(1);
+subjects = subjects(do_subject);
                 
 %% SET PLOT DEFAULTS
 
@@ -57,7 +57,7 @@ set(0, 'defaultaxesfontsize', 30, 'defaultaxesfontweight', 'bold')
 % uses: ft_preprocessing, ft_appenddata and ft_databrowser
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {};
 output = {'raw/continuous'};
 function_name = 'plot_raw';
@@ -80,7 +80,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_databrowser
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'cleaned_data'};
 output = {'epochs/butterfly_mag' 'epochs/butterfly_grad'};
 function_name = 'plot_epochs';
@@ -100,7 +100,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_databrowser
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'preprocessed_data'};
 output = {'epochs/butterfly_mag_bad' 'epochs/butterfly_grad_bad'};
 function_name = 'plot_epochs';
@@ -111,7 +111,7 @@ cfg.save_figure = true;
 cfg.continuous = 'yes';
 cfg.viewmode = 'butterfly';
 cfg.channel_sets = {'MEGMAG' 'MEGGRAD'};
-cfg.trial_indices_filename = 'removed_trial_indices.tsv';
+cfg.trial_indices_filename = [data_dir, sprintf('sub-%02d/ses-meg/meg/', do_subject), 'removed_trial_indices.tsv']; % name of tsv-file
 
 % Run "loop_through_subjects" function
 loop_through_subjects(subjects, data_dir, function_name, ...
@@ -121,7 +121,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_databrowser and ft_topoplotIC
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'ica'};
 output = {'ica/ica_continuous' 'ica/ica_topoplot'};
 function_name = 'plot_ica';
@@ -140,14 +140,14 @@ cfg.topo.layout = 'neuromag306mag.lay';
 cfg.topo.comment = 'no';
 
 % Run "loop_through_subjects" function
-loop_through_subjects(subjects(1), data_dir, function_name, ...
+loop_through_subjects(subjects, data_dir, function_name, ...
                       cfg, output, input, figures_dir, overwrite);
 
 %% PLOT TIMELOCKEDS
 % uses: ft_multiplotER, ft_topoplotER
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'timelocked_data'};
 output = {'timelockeds/multiplot' 'timelockeds/topoplot'};
 function_name = 'plot_timelockeds';
@@ -179,7 +179,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_singleplotTFR, ft_topoplotTFR
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'baselined_combined_tfr'};
 output = {'tfr/singleplot' 'tfr/topoplot'};
 function_name = 'plot_tfr';

@@ -1,6 +1,6 @@
 %% SET PATHS
 
-clearvars variables -except ft_default
+clearvars variables -except ft_default do_subject
 restoredefaultpath; %% set a clean path
 datainfo; % load the relevant directories
 
@@ -45,7 +45,7 @@ subjects = {
 %% CHOOSE THE NUMBER OF SUBJECTS RUN
 % index subjects from 1:20 according to how many you want to run (:) all
 
-subjects = subjects(1);
+subjects = subjects(do_subject);
                 
 %% SET PLOT DEFAULTS
 
@@ -57,7 +57,7 @@ set(0, 'defaultaxesfontsize', 30, 'defaultaxesfontweight', 'bold')
 % uses: ft_sourceplot
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'mri' 'mri_realigned_fiducials' ...
          'mri_realigned_digitization_points'};
 output = {'mri/mri_original' 'mri/mri_realigned_fiducals' ...
@@ -78,7 +78,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % ft_convert_units and ft_plot_mesh
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'headmodel' 'mri_segmented'};
 output = {'mri/sens_headshape_mri_axes' ...
           'mri/anat_mriseg' ...
@@ -103,7 +103,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_plot_mesh and ft_plot_vol
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'headmodel' 'warped_grid'};
 output = {'mri/headmodel_inside_grid';
           };

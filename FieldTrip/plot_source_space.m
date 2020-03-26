@@ -1,6 +1,6 @@
 %% SET PATHS
 
-clearvars variables -except ft_default
+clearvars variables -except ft_default do_subject
 restoredefaultpath; %% set a clean path
 datainfo; % load the relevant directories
 
@@ -45,7 +45,7 @@ subjects = {
 %% CHOOSE THE NUMBER OF SUBJECTS RUN
 % index subjects from 1:20 according to how many you want to run (:) all
 
-subjects = subjects(1);
+subjects = subjects(do_subject);
                 
 %% SET PLOT DEFAULTS
 
@@ -55,7 +55,7 @@ set(0, 'defaultaxesfontsize', 18, 'defaultaxesfontweight', 'bold')
 % uses: ft_selectdata
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'cropped_untimelocked_data'};
 output = {'epochs/tfr_epochs'};
 function_name = 'plot_tfr_epochs';
@@ -75,7 +75,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 % uses: ft_combineplanar
 
 % options for the function
-overwrite = false;
+overwrite = true;
 input = {'experimental_conditions_fourier' 'non_stimulation_fourier'};
 output = {'epochs/epochs_power'};
 function_name = 'plot_epochs_power';

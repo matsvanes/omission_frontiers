@@ -1,6 +1,6 @@
-%% SET PATHS
+% SET PATHS
 
-clearvars variables -except ft_default
+clearvars variables -except ft_default do_subject
 restoredefaultpath; %% set a clean path
 datainfo; % load the relevant directories
 figures_dir = [];
@@ -45,7 +45,7 @@ subjects = {
 %% CHOOSE THE NUMBER OF SUBJECTS RUN
 % index subjects from 1:20 according to how many you want to run (:) all
 
-subjects = subjects(1);
+subjects = subjects(do_subject);
 
 %% The following sections cannot be completed because raw anatomical data are missing. Use mri_segmented.mat to continue.
 %{
@@ -53,7 +53,7 @@ subjects = subjects(1);
 %uses: ft_read_mri
 
 % options for the functions
-overwrite = false;
+overwrite = true;
 input = {}; %% no MATLAB file format input
 output = {'mri'};
 function_name = 'read_dicoms';
@@ -72,7 +72,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 %uses: ft_volumerealign	
 
 % options for the functions
-overwrite = false;
+overwrite = true;
 input = {'mri'};
 output = {'mri_realigned_fiducials'};
 function_name = 'realign_to_fiducials';
@@ -89,7 +89,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 %uses: ft_volumerealign	and ft_read_headshape
 
 % options for the functions
-overwrite = false;
+overwrite = true;
 input = {'mri_realigned_fiducials'};
 output = {'mri_realigned_digitization_points'};
 function_name = 'realign_to_digitization_points';
@@ -108,7 +108,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 %uses: ft_volumesegment
 
 % options for the functions
-overwrite = false;
+overwrite = true;
 input = {'mri_realigned_digitization_points'};
 output = {'mri_segmented'};
 function_name = 'segment_mri';
@@ -124,7 +124,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 %uses: ft_prepare_mesh
 
 % options for the functions
-overwrite = false;
+overwrite = true;
 input = {'mri_segmented'};
 output = {'brain_mesh'};
 function_name = 'make_brain_mesh';
@@ -142,7 +142,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 %uses: ft_prepare_headmodel
 
 % options for the functions
-overwrite = false;
+overwrite = true;
 input = {'brain_mesh'};
 output = {'headmodel'};
 function_name = 'make_headmodel';
@@ -158,7 +158,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 %uses: ft_prepare_sourcemodel
 
 % options for the functions
-overwrite = false;
+overwrite = true;
 % Note that the input below ("mri_realigned_digitization_points") 
 % was changed to ("mri_segmented") in v1.1 (github) due to the realization 
 % that "mri_realigned_digitization_points" wasn't included in the Zenodo
@@ -184,7 +184,7 @@ loop_through_subjects(subjects, data_dir, function_name, ...
 %uses: ft_prepare_leadfield
 
 % options for the functions
-overwrite = false;
+overwrite = true;
 input = {'warped_grid' 'headmodel'};
 output = {'leadfield'};
 function_name = 'make_leadfield';

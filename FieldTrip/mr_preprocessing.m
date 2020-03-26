@@ -170,8 +170,8 @@ function_name = 'make_warped_grid';
 
 % build configuration
 cfg = []; %% initialize
-cfg.grid.warpmni = 'yes';
-cfg.grid.template = fullfile(matlab_dir, 'fieldtrip', ...
+cfg.warpmni = 'yes';
+cfg.template = fullfile(matlab_dir, 'fieldtrip', ...
                             'template', 'sourcemodel', ...
                             'standard_sourcemodel3d10mm.mat');
 cfg.grid.nonlinear = 'yes';

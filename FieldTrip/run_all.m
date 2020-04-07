@@ -47,6 +47,7 @@ for do_subject = 1:numel(all_subjects)
 end
 
 %% Group analysis
+datainfo;
 reproduce_dir = [home_dir, 'reproduce_group'];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
